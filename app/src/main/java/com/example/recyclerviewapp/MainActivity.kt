@@ -21,11 +21,11 @@ class MainActivity : AppCompatActivity() {
         )
         val snapHelper = PagerSnapHelper()
 
-        snapHelper.attachToRecyclerView(recView)
+        snapHelper.attachToRecyclerView(rView)
         val adapter = Imgadapter(itemList)
 
-        recView.adapter = adapter
-        recView.layoutManager = LinearLayoutManager(this)
+        rView.adapter = adapter
+        rView.layoutManager = LinearLayoutManager(this)
 
 
 

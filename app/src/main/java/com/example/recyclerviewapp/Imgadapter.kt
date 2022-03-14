@@ -24,12 +24,15 @@ class Imgadapter(var items: List<laytext>): RecyclerView.Adapter<Imgadapter.Item
             text1.text = items[position].t1
 
 
+
             text2.text = items[position].t2
 
 
 
             text3.text = items[position].t3
-            Glide.with(this)                .load(items[position].t4)                .into(glideImg)
+            Glide.with(this)
+                .load(items[position].t4)
+                .into(glideImg)
 
 
         }
