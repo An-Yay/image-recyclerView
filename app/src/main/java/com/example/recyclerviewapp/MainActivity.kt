@@ -6,6 +6,17 @@ import androidx.core.view.*
 import androidx.recyclerview.widget.*
 
 
+import android.util.Log
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
+import androidx.recyclerview.widget.*
+import kotlinx.android.synthetic.main.activity_main.*
+
+
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.recyclerviewapp.R.layout.img_rec
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.img_rec.view.*
 
 class Imgadapter(var items: List<laytext>): RecyclerView.Adapter<Imgadapter.ItemViewHolder>() {
 
