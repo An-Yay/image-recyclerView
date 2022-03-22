@@ -1,1 +1,1 @@
-Kotlin App with recycber view and using glide to access images
+Kotlin App with recycler view and using glide to access images
