@@ -54,5 +54,8 @@ dependencies {
     implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     kapt 'androidx.lifecycle:lifecycle-compiler:2.5.0-alpha06'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.5.0-alpha06'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'wu.seal.jsontokotlin:library:3.6.1'
+
 
 }
