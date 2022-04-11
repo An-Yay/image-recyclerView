@@ -14,13 +14,25 @@ import android.widget.Toast
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.*
+import com.example.recyclerviewapp.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+
+import java.lang.Exception
+import java.net.UnknownHostException
 
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+
+    var currentPage: Int = 1
+    var loading: Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+//        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
 
         var itemList = mutableListOf(
             laytext("lorem ipsum", "lorem ipsum", "lorem ipsum","https://www.denofgeek.com/wp-content/uploads/2016/04/dark-souls_1.jpg?resize=670%2C432"),
@@ -32,14 +44,42 @@ class MainActivity : AppCompatActivity() {
         )
         val snapHelper = PagerSnapHelper()
 
-        snapHelper.attachToRecyclerView(rView)
+        snapHelper.attachToRecyclerView(binding.rView)
         val adapter = Imgadapter(itemList)
+        binding.rView.adapter = adapter
 
-        rView.adapter = adapter
-        rView.layoutManager = LinearLayoutManager(this)
+        var layoutManager = LinearLayoutManager(this)
+        binding.rView.layoutManager = layoutManager
+
+        binding.rView.addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                val indexRv = (binding.rView.layoutManager as? LinearLayoutManager)?.findFirstVisibleItemPosition()
+                if(indexRv!=0){
+                    binding.scrollToTopBtn.visibility = View.VISIBLE
+                } else {
+                    binding.scrollToTopBtn.visibility = View.GONE
+                }
+            }
+        })
+
+        binding.scrollToTopBtn.setOnClickListener{
+            binding.rView.smoothScrollToPosition(0)
+            binding.rView.smoothScrollBy(5,0)
+        }
+    }
 
 
 
-    }       
+
+
+
+
+
+
+
+
+
+
 }
 // view binding
